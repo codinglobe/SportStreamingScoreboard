@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoreboard Display</title>
+    <link rel="stylesheet" href="css/scoreboard_display.css" href="https://fonts.googleapis.com/css?family=Montserrat">
+</head>
+<body>
+    <div class="scoreboard">
+        <div class="scoreboard-header">
+            <div class="scoreboard-title" id="championshipText">Scoreboard</div>
+        </div>
+        <div class="scoreboard-body">
+            <div class="team team-left">
+                <div class="team-logo">
+                    <img id="teamLogo1" src="" alt="Team Logo 1">
+                </div>
+                <div class="team-names">
+                    <div class="team-name" id="teamName1">Team Name 1</div>
+                </div>
+            </div>
+            <div class="score">
+                <span id="score1">0</span>
+                <div class="time">
+                    <p id="time-input">00:00</p>
+                </div>
+                <span id="score2">0</span>
+            </div>
+            <div class="team team-right">
+                <div class="team-names">
+                    <div class="team-name" id="teamName2">Team Name 2</div>
+                </div>
+                <div class="team-logo">
+                    <img id="teamLogo2" src="" alt="Team Logo 2">
+                </div>
+            </div>
+        </div>
+        <div class="scoreboard-footer">
+            <div class="penalty-time-1-1" id="penaltyTimeDisplay1-1"></div>
+            <div class="penalty-time-1-2" id="penaltyTimeDisplay1-2"></div>
+            <div class="period" id="period">1st Period</div>
+            <div class="penalty-time-2-1" id="penaltyTimeDisplay2-1"></div>
+            <div class="penalty-time-2-2" id="penaltyTimeDisplay2-2"></div>
+        </div>
+        
+        <!-- Global Animation-Box -->
+        <div class="animation-box" id="globalAnimationBox">
+            <img id="teamLogoAnimation" src="" alt="Team Logo">
+            <div id="teamNameAnimation"></div>
+            <div id="animationText"></div>
+            <div id="scoreAnimation"></div>
+            <div id="penaltyTimeAnimation"></div>
+        </div>
+
+    <script src="javascript/scoreboard_display.js"></script>
+</body>
+</html>

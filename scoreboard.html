@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eishockey-Scoreboard Controlpanel</title>
+    <link rel="stylesheet" href="css/scoreboard.css" href="https://fonts.googleapis.com/css?family=Montserrat">
+</head>
+<body> 
+    <h1 class="title">Eishockey-Scoreboard</h1>
+    <div class="scoreboard-container">
+        <div class="team">
+            <h2 id="teamName1">Team 1</h2>
+            <input type="file" accept="image/*" id="teamLogoInput1" onchange="handleLogoUpload(1)">
+            <img class="team-logo" id="teamLogo1" src="Bilder/default.jpg" alt="Team 1 Logo">
+            <p>Tore: <span id="score1">0</span>
+                <button class="score-button" onclick="decrementScore(1)">-</button>
+                <button class="score-button" onclick="incrementScore(1)">+</button>
+            </p>
+            <input type="text" placeholder="Team 1 Name" id="teamNameInput1" oninput="updateTeamName(1)">
+            <h3>Strafzeiten</h3>
+            <div id="penaltyTimes1">
+                <div>
+                    <select id="penaltyTimeInput1-1">
+                        <option value="02:00">02:00</option>
+                        <option value="04:00">04:00</option>
+                        <option value="05:00">05:00</option>
+                    </select>
+                    <button class="penalty-button" onclick="startPenaltyTimer(1, 1)">Start</button>
+                    <button class="penalty-button" onclick="deletePenaltyTime(1, 1)">Löschen</button>
+                    <div id="penaltyTimeDisplay1-1"></div>
+                </div>
+                <div>
+                    <select id="penaltyTimeInput1-2">
+                        <option value="02:00">02:00</option>
+                        <option value="04:00">04:00</option>
+                        <option value="05:00">05:00</option>
+                    </select>
+                    <button class="penalty-button" onclick="startPenaltyTimer(1, 2)">Start</button>
+                    <button class="penalty-button" onclick="deletePenaltyTime(1, 2)">Löschen</button>
+                    <div id="penaltyTimeDisplay1-2"></div>
+                </div>
+            </div>
+            <!-- Tor- und Strafen-Buttons für Team 1 -->
+            <button class="score-button" onclick="goalButtonClicked(1)">Tor</button>
+            <button class="penalty-button" onclick="penaltyButtonClicked(1)">Strafe</button>
+        </div>
+
+        <div class="settings">
+            <h2>Settings</h2>
+            <label for="maxTime">Max Time (Minutes):</label>
+            <div class="time-input">
+                <input type="number" id="maxTime" value="20">
+            </div>
+            <button class="max-time-button" onclick="setMaxTime()">Set Max Time</button>
+            <p>Championship: <span id="championshipText">N/A</span></p>
+            <input type="text" id="championship" placeholder="Championship">
+            <h2>Period</h2>
+            <button class="period-button" onclick="changePeriod('-')">-</button>
+            <span id="period">1st Period</span>
+            <button class="period-button" onclick="changePeriod('+')">+</button>
+            <h2>Time</h2>
+            <div class="time-input">
+                <button class="time-button" onclick="adjustTime('minutes+', 1)">+</button>
+                <button class="time-button" onclick="adjustTime('minutes-', 1)">-</button>
+                <span id="minutes">00</span> : 
+                <span id="seconds">00</span>
+                <button class="time-button" onclick="adjustTime('seconds+', 1)">+</button>
+                <button class="time-button" onclick="adjustTime('seconds-', 1)">-</button>
+            </div>
+            <!-- Radio-Buttons für die Zeitrichtung -->
+            <label>Count Direction:</label>
+            <label for="countDirectionUp">Aufwärts</label>
+            <input type="radio" id="countDirectionUp" name="countDirection" checked>
+            <label for="countDirectionDown">Abwärts</label>
+            <input type="radio" id="countDirectionDown" name="countDirection">
+            <button class="timer-button" onclick="toggleCountDirection()">Aktualisieren</button>
+
+            <button class="timer-button" onclick="startStopTimer()">Start/Stop</button>
+            <button class="timer-button" onclick="resetGame()">Reset</button>
+
+            <div class="container">
+                <h2>Excel to JSON Converter</h2>
+                <form id="upload-form" enctype="multipart/form-data">
+                    <input type="file" id="excel-file" accept=".xls, .xlsx" />
+                    <button type="button" onclick="convertExcelToJson()">Convert</button>
+                </form>
+                <div id="output"></div>
+            </div>
+        </div>
+
+        <div class="team">
+            <div class="team">
+                <h2 id="teamName2">Team 2</h2>
+                <input type="file" accept="image/*" id="teamLogoInput2" onchange="handleLogoUpload(2)">
+                <img class="team-logo" id="teamLogo2" src="Bilder/default.jpg" alt="Team 2 Logo">
+                <p>Tore: <span id="score2">0</span>
+                    <button class="score-button" onclick="decrementScore(2)">-</button>
+                    <button class="score-button" onclick="incrementScore(2)">+</button>
+                </p>
+                <input type="text" placeholder="Team 2 Name" id="teamNameInput2" oninput="updateTeamName(2)">
+                <h3>Strafzeiten</h3>
+                <div id="penaltyTimes2">
+                <div>
+                    <select id="penaltyTimeInput2-1">
+                        <option value="02:00">02:00</option>
+                        <option value="04:00">04:00</option>
+                        <option value="05:00">05:00</option>
+                    </select>
+                    <button class="penalty-button" onclick="startPenaltyTimer(2, 1)">Start</button>
+                    <button class="penalty-button" onclick="deletePenaltyTime(2, 1)">Löschen</button>
+                    <div id="penaltyTimeDisplay2-1"></div>
+                </div>
+                <div>
+                    <select id="penaltyTimeInput2-2">
+                        <option value="02:00">02:00</option>
+                        <option value="04:00">04:00</option>
+                        <option value="05:00">05:00</option>
+                    </select>
+                    <button class="penalty-button" onclick="startPenaltyTimer(2, 2)">Start</button>
+                    <button class="penalty-button" onclick="deletePenaltyTime(2, 2)">Löschen</button>
+                    <div id="penaltyTimeDisplay2-2"></div>
+                </div>
+            </div>
+            <!-- Tor- und Strafen-Buttons für Team 2 -->
+            <button class="score-button" onclick="goalButtonClicked(2)">Tor</button>
+            <button class="penalty-button" onclick="penaltyButtonClicked(2)">Strafe</button>
+        </div>
+    </div>
+
+    <script src="javascript/scoreboard.js"></script>
+</body>
+</html>
