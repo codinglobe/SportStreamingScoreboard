@@ -1,0 +1,124 @@
+body {
+    font-family: Montserrat, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.title {
+    text-align: center;
+    font-size: 24px;
+    margin: 20px 0;
+}
+
+.scoreboard-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    max-width: 1280px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.team {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    background-color: rgb(98, 161, 185);
+}
+
+.team:nth-child(2n) {
+    background-color: #e0e0e0;
+}
+
+.team h2 {
+    font-size: 30px;
+    margin: 10px 0;
+}
+
+.team h3 {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.team-logo {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.team p {
+    font-size: 24px;
+}
+
+.score-button,
+.penalty-button,
+.max-time-button,
+.period-button,
+.timer-button,
+.time-button {
+    font-size: 18px;
+    background-color: #008CBA;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+input[type="text"],
+.settings input[type="number"] {
+    font-size: 18px;
+    padding: 5px;
+}
+
+.settings {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    background-color: #f2f2f2;
+}
+
+.settings h2 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.settings label {
+    font-size: 18px;
+}
+
+.settings #minutes,
+.settings #seconds {
+    font-size: 24px;
+    margin: 0 5px;
+}
+
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+}
+
+input {
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
